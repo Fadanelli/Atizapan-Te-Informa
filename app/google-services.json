@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "538402810582",
+    "project_id": "retoatizapan",
+    "storage_bucket": "retoatizapan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538402810582:android:3467a75ae391b3e00fb777",
+        "android_client_info": {
+          "package_name": "mx.itesm.mafo.reto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "538402810582-dh3hvr77l842lkj29k40vpoo0gkggsc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvBfMH2SINIFcBPD8uqkS6IOH8rdbEQaw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "538402810582-dh3hvr77l842lkj29k40vpoo0gkggsc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Reto</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lugar_titulo">Lugar Titulo</string>
+    <string name="icono_accion">Icono Accion</string>
+    <string name="notificaciones_recientes">Notificaciones Recientes</string>
+    <string name="atizap_n_te_informa">Atizapán te informa</string>
+    <string name="clima">Clima</string>
+    <string name="copiar_no_bomberos">Copiar no. bomberos</string>
+    <string name="llamar_bomberos">LLAMAR BOMBEROS</string>
+    <string name="llamadas_de_emergencia">Llamadas de emergencia</string>
+    <string name="llamar_ambulancia">LLAMAR AMBULANCIA</string>
+    <string name="todo">TODO</string>
+    <string name="copiar_no_ambulancia">Copiar no. ambulancia</string>
+    <string name="llamar_emergencias">LLAMAR EMERGENCIAS</string>
+    <string name="todo2">TODO</string>
+    <string name="copiar_no_emergencia">Copiar no. emergencia</string>
+    <string name="llamar_policia">LLAMAR POLICIA</string>
+    <string name="todo3">TODO</string>
+    <string name="copiar_n_mero_policia">Copiar número policia</string>
+    <string name="no_hay_incidentes">No hay incidentes</string>
+</resources>
