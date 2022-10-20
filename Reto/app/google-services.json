@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "379441043070",
+    "project_id": "retoatizapanteinforma",
+    "storage_bucket": "retoatizapanteinforma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:379441043070:android:6d457acb7e79952ef42a2f",
+        "android_client_info": {
+          "package_name": "mx.itesm.mafo.reto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "379441043070-gqmqld8q3lm8so2bqh6989s60quetnqk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.itesm.mafo.reto",
+            "certificate_hash": "218cb9c947a2290b99741de2c241fbcdda1c0f2d"
+          }
+        },
+        {
+          "client_id": "379441043070-ijo4ehft6hu3f866puipkn913uls8dj8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRfMRvc3VvoPKNx6pWKGzbKwOmWtQQAEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "379441043070-ijo4ehft6hu3f866puipkn913uls8dj8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

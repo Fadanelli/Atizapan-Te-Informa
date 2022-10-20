@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/bai_jamjuree_extralight</item>
+        <item>@font/lexend_deca</item>
+        <item>@font/merriweather</item>
+        <item>@font/montserrat_alternates_medium</item>
+        <item>@font/varela_round</item>
+    </array>
+</resources>
