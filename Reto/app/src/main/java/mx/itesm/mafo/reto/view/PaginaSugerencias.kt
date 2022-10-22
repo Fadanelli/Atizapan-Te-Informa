@@ -9,8 +9,10 @@ import mx.itesm.mafo.reto.SugerenciasAdaptador
 
 class PaginaSugerencias : AppCompatActivity() {
 
+    // Array de sugerencias
     val listaSugerencias = ArrayList<Sugerencias>()
 
+    // Cargamos elementos
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pagina_sugerencias)
@@ -19,12 +21,14 @@ class PaginaSugerencias : AppCompatActivity() {
         setRecyclerView()
     }
 
+    // Creamos recyclerview
     private fun setRecyclerView() {
         val sugerenciasAdaptador = SugerenciasAdaptador(listaSugerencias)
         vistaRecycle.adapter = sugerenciasAdaptador
         vistaRecycle.setHasFixedSize(true)
     }
 
+    // Datos a cargar con las sugerencias en formato string se agregan al array
     private fun initData() {
 
         listaSugerencias.add(
@@ -123,7 +127,7 @@ class PaginaSugerencias : AppCompatActivity() {
         )
         listaSugerencias.add(
             Sugerencias(
-                "Que hace en caso de amenaza de bomba",
+                "Que hacer en caso de amenaza de bomba",
                 "                                      Durante: \n"+
                 "+ Conservar la calma.\n" +
                         "+ Seguir las órdenes del personal capacitado.\n"

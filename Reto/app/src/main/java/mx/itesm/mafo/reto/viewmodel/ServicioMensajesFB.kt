@@ -15,14 +15,17 @@ import mx.itesm.mafo.reto.view.MainActivity
 
 class ServicioMensajesFB : FirebaseMessagingService()
 {
+    // Establecemos parametros del canal de firebase
     private val chanelId = "mx.itesm.mafo.reto.viewmodel"
     private val channelName = "AlertasPC"
 
+    // Token individual del dispositivo
     override fun onNewToken(token: String)
     {
         println("Token de este dispositivo: $token")
     }
 
+    // Avisamos si la notificacion es recibida
     override fun onMessageReceived(mensaje: RemoteMessage) {
         println("Llega NOTIFICIACIÓN REMOTA!!!")
         if (mensaje.notification != null) {
@@ -40,6 +43,7 @@ class ServicioMensajesFB : FirebaseMessagingService()
         }
     }
 
+    // Creamos la notificacion en el dispositivo con los datos recibidos
     private fun generarNotificacion(mensaje: RemoteMessage)
     {
 
@@ -66,6 +70,7 @@ class ServicioMensajesFB : FirebaseMessagingService()
 
     }
 
+    // Asignamos los valores en los textview y el icono a desplegar en la notificacion
     @SuppressLint("RemoteViewLayout")
     private fun crearVistaRemota(message: RemoteMessage): RemoteViews
     {

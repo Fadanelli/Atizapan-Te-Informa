@@ -23,6 +23,7 @@ class TwitterFacebook : AppCompatActivity() {
 
     }
 
+    // Creamos un boton que lleva a la red social seleccionada
     private fun registrarEventos() {
         binding.facebookico.setOnClickListener{
             val inter = Intent(

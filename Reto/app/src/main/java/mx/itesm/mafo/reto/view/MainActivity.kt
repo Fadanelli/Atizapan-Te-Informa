@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    // Cargamos elementos y nos suscribimos a firebase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+    // Asignamos accion a cada boton en la pantalla
     private fun registrarEventos() {
         binding.crdNotif.setOnClickListener {
             val intent = Intent(this, registro_notificaciones::class.java)
@@ -70,6 +71,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // Comprobamos permisos para correcta funcionalidad de la aplicacion
     private fun revisarPermisos() {
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CALL_PHONE), 101)

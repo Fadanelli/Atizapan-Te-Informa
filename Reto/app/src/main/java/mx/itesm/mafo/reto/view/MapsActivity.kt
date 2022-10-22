@@ -23,13 +23,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
 
+    // Cargamos elementos
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -37,6 +35,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         refresh()
     }
 
+    // Volvemos a iniciar la actividad actual y volvemos a llamar a la API
     private fun refresh() {
         binding.button.setOnClickListener {
             finish()
@@ -44,13 +43,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    // Creamos el mapa
     override fun onMapReady(googleMap: GoogleMap) {
 
-        // Instantiate the RequestQueue.
+        // Asignamos link al endpoint y creamos stack de requests
         val queue = Volley.newRequestQueue(this)
         val url = "https://snowker.xyz/coords"
 
-        // Request a string response from the provided URL.
+        // Llamada a la API en formato JSON
         val coordRequest = JsonArrayRequest(
             Request.Method.GET, url, null,
             { response ->
@@ -58,16 +58,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 val coordArr = obj.getString("Coords")
                 val incidentArr = obj.getJSONArray("Incidents")
                 println(incidentArr)
+                // Comprobamos si no hay incidentes y reasignamos valor del textview
                 if (incidentArr.length() == 0) {
                     val t = findViewById<TextView>(R.id.tvCoordenadas)
                     t.text = "No hay incidentes"
                 } else {
+                    // Damos formato a los datos obtenidos y los asignamos
                     val layout = findViewById<LinearLayout>(R.id.mylayout)
                     val params: ViewGroup.LayoutParams = layout.layoutParams
                     params.width = 1
                     params.height = 1
                     layout.layoutParams = params
                     var coordStr = coordArr.toString()
+                    // Separamos las coordenadas individualmente
                     coordStr = coordStr.replace("[", "")
                     coordStr = coordStr.replace("]", "")
                     coordStr = coordStr.replace("\"", "");
@@ -77,15 +80,17 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         if ((c + 1) > coords.size) {
                             break
                         }
+                        // Creamos un pin por cada coordenada
                         val mapPin = LatLng(coords[c].toDouble(), coords[c + 1].toDouble())
                         mMap.addMarker(MarkerOptions().position(mapPin).title(incidentArr[c].toString()))
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mapPin, 12f))
                     }
                 }
             },
+            // En caso de fallar llamada
             { println("That didn't work!")})
 
-        // Add the request to the RequestQueue.
+        // Agregamos al stack de requests
         queue.add(coordRequest)
     }
 }

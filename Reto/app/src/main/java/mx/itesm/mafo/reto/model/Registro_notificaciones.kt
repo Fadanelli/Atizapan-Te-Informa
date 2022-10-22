@@ -14,18 +14,20 @@ class registro_notificaciones : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityRegistroNotificacionesBinding.inflate(layoutInflater)
         setContentView(binding.root)
         fetchNotis()
         refresh()
 
     }
+    // Refrescar las notificaciones con un boton
     private fun refresh() {
         binding.btnRefrescar.setOnClickListener {
             fetchNotis()
         }
     }
+
+    // Llama a la API para obtener las ultimas 10 notificaciones
     private fun fetchNotis() {
         val nt1 = findViewById<TextView>(R.id.txtNotif1)
         val nt2 = findViewById<TextView>(R.id.txtNotif2)
@@ -38,20 +40,22 @@ class registro_notificaciones : AppCompatActivity() {
         val nt9 = findViewById<TextView>(R.id.txtNotif9)
         val nt10 = findViewById<TextView>(R.id.txtNotif10)
 
-        // Instantiate the RequestQueue.
+        // Llamada a la API
         val queue = Volley.newRequestQueue(this)
         val url = "https://snowker.xyz/coords"
 
-        // Request a string response from the provided URL.
+        // Llamada en formato JSON
         val notiRequest = JsonArrayRequest(
             Request.Method.GET, url, null,
             { response ->
                 val obj = response.getJSONObject(0)
                 val notis = obj.getJSONArray("Notifications")
+                // Creamos array y recorremos la respuesta para asignarle las notificaciones
                 val list: ArrayList<String> = ArrayList()
                 for (i in 0 until notis.length()) {
                     list.add(notis[i].toString())
                 }
+                // Damos formato para asignarlas
                 list.reverse()
                 val arr = arrayOf("", "", "", "", "", "", "", "", "", "")
                 for (c in 0..9) {
@@ -61,6 +65,7 @@ class registro_notificaciones : AppCompatActivity() {
                         arr[c] = list.elementAt(c)
                     }
                 }
+                // Establecemos el orden de visualizacion
                 nt1.text = arr[0]
                 nt2.text = arr[1]
                 nt3.text = arr[2]
@@ -72,9 +77,10 @@ class registro_notificaciones : AppCompatActivity() {
                 nt9.text = arr[8]
                 nt10.text = arr[9]
             },
+            // En caso de fallar la llamada
             { nt1.text = "That didn't work!" })
 
-        // Add the request to the RequestQueue.
+        // Agregamos al stack de requests
         queue.add(notiRequest)
     }
 

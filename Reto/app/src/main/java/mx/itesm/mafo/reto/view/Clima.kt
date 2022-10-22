@@ -19,7 +19,7 @@ class Clima : AppCompatActivity() {
     private lateinit var binding: ClimaBinding
     private val convertidorVM: ClimaVM by viewModels()
 
-
+    // Creamos los componentes a desplegar junto con el boton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ClimaBinding.inflate(layoutInflater)
@@ -37,8 +37,7 @@ class Clima : AppCompatActivity() {
 
     }
 
-
-
+    // Buscar los textiew y actualizar valores con los valores obtenidos del VM
     private fun UpdateForecast() {
         val morning = findViewById<TextView>(R.id.dMañana)
         val afternoon = findViewById<TextView>(R.id.dTarde)

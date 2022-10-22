@@ -17,7 +17,7 @@ class ServicioMensajesFB : FirebaseMessagingService()
         private val chanelId = "mx.itesm.mafo.reto"
         private val channelName = "alertasPC"
 
-
+        // Avisamos si recibimos la notificacion
         override fun onMessageReceived(mensaje: RemoteMessage) {
             println("Llega NOTIFICIACIÓN REMOTA!!!")
             if (mensaje.notification != null) {
@@ -32,6 +32,7 @@ class ServicioMensajesFB : FirebaseMessagingService()
             }
         }
 
+        // Creamos notificacion y definimos parametros
         private fun generarNotificacion(mensaje: RemoteMessage)
         {
 
@@ -40,6 +41,7 @@ class ServicioMensajesFB : FirebaseMessagingService()
 
             val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_MUTABLE)
 
+            // Parametros de la notificacion y asignacion de valores
             var builder = NotificationCompat.Builder(this, chanelId)
                 .setSmallIcon(R.drawable.icon)
                 .setAutoCancel(true)
@@ -58,6 +60,7 @@ class ServicioMensajesFB : FirebaseMessagingService()
 
         }
 
+        // Asignamos valores a los textview de la notificacion
         @SuppressLint("RemoteViewLayout")
         private fun crearVistaRemota(message: RemoteMessage): RemoteViews
         {

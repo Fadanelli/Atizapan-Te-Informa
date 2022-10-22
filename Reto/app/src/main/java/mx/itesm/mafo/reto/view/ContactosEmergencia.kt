@@ -84,6 +84,7 @@ class ContactosEmergencia : AppCompatActivity()
         }
     }
 
+    // Comprobamos permisos y leemos ubicacion
     private fun configurarGPS() {
         if (tienePermiso()) {
             iniciarActualizacionesPosicion()
@@ -93,6 +94,7 @@ class ContactosEmergencia : AppCompatActivity()
         leerUltimaUbicacion()
     }
 
+    // Obtener ultima localizacion si se tienen permisos
     private fun leerUltimaUbicacion() {
 
         if (ActivityCompat.checkSelfPermission(
@@ -111,6 +113,7 @@ class ContactosEmergencia : AppCompatActivity()
             }
     }
 
+    // Solicitamos permisos al iniciar aplicacion
     private fun solicitarPermisos() {
         val requiereJustificacion = ActivityCompat.shouldShowRequestPermissionRationale(
             this,
@@ -160,6 +163,8 @@ class ContactosEmergencia : AppCompatActivity()
             }
         }
     }
+
+    // Dialogo inicial
     private fun mostrarDialogo() {
         val dialogo = AlertDialog.Builder(this)
             .setMessage("Necesitamos saber tu posición para generar alertas")
